@@ -5,15 +5,18 @@ import HomeBannerImg from './shared/images/home_banner.webp';
 import TestimonialImg from './shared/images/testimonial.avif';
 import { HiArrowRight } from 'react-icons/hi';
 import { HiStar } from "react-icons/hi2";
-import { FaCcPaypal } from "react-icons/fa";
-import { FaCcMastercard } from "react-icons/fa";
-import { FaCcApplePay } from "react-icons/fa";
-import { FaCcVisa } from "react-icons/fa";
-import { PiInstagramLogoLight } from "react-icons/pi";
-import { PiTwitterLogoLight } from "react-icons/pi";
-import { PiFacebookLogoLight } from "react-icons/pi";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { FaCcPaypal, FaCcMastercard, FaCcApplePay, FaCcVisa } from "react-icons/fa";
+import { PiInstagramLogoLight,PiTwitterLogoLight, PiFacebookLogoLight  } from "react-icons/pi";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 
 function App() {
+  const sliderOptions = {
+    type: 'loop',
+    perPage: '3',
+    gap: '2rem',
+  }
   return (
     <div>
       {/* Top Header */}
@@ -30,14 +33,14 @@ function App() {
               <h4 className="text-3xl font-semibold pl-2">Radiant</h4>
             </div>
             <ul className="flex">
-              <li className="cursor-pointer font-light hover:text-primaryColor transition-all duration-300 ease-in-out">
+              <li className="cursor-pointer font-light hover:text-primaryColor hover_transition">
                 Products
               </li>
-              <li className="cursor-pointer font-light hover:text-primaryColor transition-all duration-300 ease-in-out pl-8">
+              <li className="cursor-pointer font-light hover:text-primaryColor hover_transition pl-8">
                 About Us
               </li>
             </ul>
-            <button className="bg-black text-white rounded-full px-8 py-3 hover:bg-primaryColor transition-all duration-500 ease-in-out">
+            <button className="bg-black text-white rounded-full px-8 py-3 hover:bg-primaryColor hover_transition">
               Contact Us
             </button>
           </div>
@@ -50,11 +53,11 @@ function App() {
           <span className="text-7xl z-10 pb-4">Elevate and Discover</span>
           <span className="text-7xl z-10">Radiant Skin.</span>
           <div className="flex pt-8">
-            <button className="flex items-center rounded-full px-8 py-3 z-10 text-white bg-black hover:bg-primaryColor transition-all duration-500 ease-in-out">
+            <button className="flex items-center rounded-full px-8 py-3 z-10 text-white bg-black hover:bg-primaryColor hover_transition">
               <span className='mr-3'>Shop now</span>
               <HiArrowRight className='text-xl' />
             </button>
-            <button className="flex items-center rounded-full px-8 py-3 z-10 ml-4 border text-black border-black hover:bg-black hover:text-white transition-all duration-500 ease-in-out">
+            <button className="flex items-center rounded-full px-8 py-3 z-10 ml-4 border text-black border-black hover:bg-black hover:text-white hover_transition">
               <span>Learn more</span>
             </button>
           </div>
@@ -66,7 +69,7 @@ function App() {
 
       {/* Static Section */}
       <div className="container mx-auto">
-        <div className="grid grid-cols-12 mx-40">
+        <div className="grid grid-cols-12 mx-40 my-10">
           {/* Image Section */}
           <div className="col-span-4">
             <img className="rounded-[50px]" src={HomeBannerImg} alt="Home Banner" />
@@ -86,7 +89,7 @@ function App() {
                 </p>
               </div>
               <div className="mt-8">
-                <button className="flex text-sm rounded-full px-4 py-2 items-center bg-black text-white hover:bg-primaryColor transition-all duration-500 ease-in-out">
+                <button className="flex text-sm rounded-full px-4 py-2 items-center bg-black text-white hover:bg-primaryColor hover_transition">
                   <span> Read more </span>
                   <HiArrowRight className="ml-2 text-sm" />
                 </button>
@@ -97,11 +100,34 @@ function App() {
       </div>
 
       {/* Product Swiper */}
-      <div>
+      <div className="bg-homeBackgroundColor py-16 my-12">
+        <div className="flex flex-col w-[960px] mx-auto">
+          <p className="text-5xl font-medium text-center mb-10">Our Products</p>
+          <div className="flex justify-between items-center mb-6">
+            <button className="rounded-full bg-white px-4 py-2 text-sm hover:bg-primaryColor hover:text-white hover_transition">View all</button>
+            <div className="flex">
+                <IoIosArrowBack className="rounded-full w-8 h-auto p-2 text-white bg-black" />
+                <IoIosArrowForward className="rounded-full w-8 h-auto p-2 text-white bg-black ml-2" />
+            </div>
+          </div>
+          <Splide options={sliderOptions}>
+            <SplideSlide>
+              <div className="rounded-2xl bg-white p-8">
+                <p className="text-xl h-16 overflow-hidden text-ellipsis pb-4">Radiant Eye Cream</p>
+                <p className="text-xl text-primaryColor">$40.00</p>
+                <img src={HomeBannerImg} className="h-40 rounded-xl w-full my-4" alt="" />
+                <div className="flex justify-between">
+                  <button className="text-xs bg-black text-white px-4 py-2 rounded-full hover:bg-primaryColor hover_transition">Buy now</button>
+                  <button className="text-xs bg-white text-black border-black border-[1px] px-4 py-2 rounded-full hover:bg-black hover:text-white hover_transition">Learn more</button>
+                </div>
+              </div>
+            </SplideSlide>
+          </Splide>
+        </div>
       </div>
 
       {/* Testimonial Section */}
-      <div className="container mx-auto my-10">
+      <div className="container mx-auto my-12">
         <div className="flex flex-col items-center w-[700px] mx-auto">
           <p className="text-center text-md">
             "I would highly recommend the Radiant beauty product line to anyone looking for high-quality, 
@@ -138,7 +164,7 @@ function App() {
       </div>
 
       {/* Footer Section */}
-      <div className="bg-footerColor">
+      <div className="bg-homeBackgroundColor">
         <div className="w-[960px] mx-auto">
           <div className="flex justify-between py-16 border-b-[1px] border-primaryColor border-opacity-50">
             <div className="flex items-center">
@@ -153,22 +179,22 @@ function App() {
             </ul>
           </div>
           <div className="py-16 border-b-[1px] border-primaryColor border-opacity-50">
-            <p className="text-4xl font-semibold">Contact Us</p>
+            <p className="text-5xl font-medium">Contact Us</p>
             <div className="grid grid-cols-12 py-4">
               <div className="col-span-6">
-                <input type="text" class="w-full bg-white rounded-[20px] py-4 px-4 my-2 focus:outline-none sm:text-sm" placeholder="Your name" />
-                <input type="text" class="w-full bg-white rounded-[20px] py-4 px-4 my-2 focus:outline-none sm:text-sm" placeholder="Your email" />
-                <textarea type="text" class="w-full bg-white rounded-[20px] py-4 px-4 my-2 focus:outline-none sm:text-sm" placeholder="Your message" rows="8"></textarea>
-                <button type="text" class="w-full bg-black text-white rounded-[20px] py-4 px-4 my-2 hover:opacity-70 transition-all duration-500 ease-in-out sm:text-sm" placeholder="Your message">Send</button>
+                <input type="text" className="w-full bg-white rounded-[20px] py-4 px-4 my-2 focus:outline-none sm:text-sm" placeholder="Your name" />
+                <input type="text" className="w-full bg-white rounded-[20px] py-4 px-4 my-2 focus:outline-none sm:text-sm" placeholder="Your email" />
+                <textarea type="text" className="w-full bg-white rounded-[20px] py-4 px-4 my-2 focus:outline-none sm:text-sm" placeholder="Your message" rows="8"></textarea>
+                <button type="text" className="w-full bg-black text-white rounded-[20px] py-4 px-4 my-2 hover:opacity-70 hover_transition sm:text-sm" placeholder="Your message">Send</button>
               </div>
               <div className="col-span-6 pt-4 pl-16">
                 <div className="grid grid-cols-12">
                   <div className="col-span-6 mb-10">
                     <p className="pb-4 text-xl font-semibold">Pages</p>
                     <ul>
-                      <li className="font-light text-sm cursor-pointer py-3 hover:text-primaryColor transition-all duration-400 ease-in-out">Homepage</li>
-                      <li className="font-light text-sm cursor-pointer py-3 hover:text-primaryColor transition-all duration-400 ease-in-out">About</li>
-                      <li className="font-light text-sm cursor-pointer py-3 hover:text-primaryColor transition-all duration-400 ease-in-out">All products</li>
+                      <li className="font-light text-sm cursor-pointer py-3 hover:text-primaryColor hover_transition">Homepage</li>
+                      <li className="font-light text-sm cursor-pointer py-3 hover:text-primaryColor hover_transition">About</li>
+                      <li className="font-light text-sm cursor-pointer py-3 hover:text-primaryColor hover_transition">All products</li>
                     </ul>
                   </div>
                   <div className="col-span-6 mb-10">
@@ -192,7 +218,7 @@ function App() {
             </div>
           </div>
           <div className="text-center text-sm font-light py-16">
-            <p className="cursor-pointer hover:text-primaryColor transition-all duration-500 ease-in-out">Designed by Artyum Grebenyuk - powered by Framer</p>
+            <p className="cursor-pointer hover:text-primaryColor hover_transition">Designed by Artyum Grebenyuk - powered by Framer</p>
           </div>
         </div>
       </div>

@@ -19,3 +19,6 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+.hover_transition {
+  transition: all 250ms ease-in-out ;
+}
