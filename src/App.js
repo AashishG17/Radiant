@@ -3,13 +3,19 @@ import React from 'react';
 import SnowLogo from './shared/icons/snowfall.png';
 import HomeBannerImg from './shared/images/home_banner.webp';
 import TestimonialImg from './shared/images/testimonial.avif';
+import ScrollImg1 from './shared/images/AutoImg1.webp'
+import ScrollImg2 from './shared/images/AutoImg2.webp'
+import ScrollImg3 from './shared/images/AutoImg3.webp'
+import ScrollImg4 from './shared/images/AutoImg4.webp'
+import ScrollImg5 from './shared/images/AutoImg5.webp'
 import { HiArrowRight } from 'react-icons/hi';
-import { HiStar } from "react-icons/hi2";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { FaCcPaypal, FaCcMastercard, FaCcApplePay, FaCcVisa } from "react-icons/fa";
-import { PiInstagramLogoLight,PiTwitterLogoLight, PiFacebookLogoLight  } from "react-icons/pi";
-import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+import { HiStar } from 'react-icons/hi2';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { FaCcPaypal, FaCcMastercard, FaCcApplePay, FaCcVisa } from 'react-icons/fa';
+import { PiInstagramLogoLight,PiTwitterLogoLight, PiFacebookLogoLight  } from 'react-icons/pi';
+import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 function App() {
   const sliderOptions = {
@@ -20,6 +26,20 @@ function App() {
     type: 'loop',
     perPage: '3',
     gap: '2rem',
+  }
+  const autoScrollOptions = {
+    type: 'loop',
+    drag: 'free',
+    gap: '4rem',
+    arrows: false,
+    pagination: false,
+    perPage: 4,
+    autoScroll: {
+      pauseOnHover: false,
+      pauseOnFocus: false,
+      rewind: false,
+      speed: 2,
+    }
   }
   return (
     <div>
@@ -104,7 +124,7 @@ function App() {
       </div>
 
       {/* Product Swiper */}
-      <div className="bg-homeBackgroundColor py-16 my-12">
+      <div className="bg-homeBackgroundColor py-16 mt-14 mb-16">
         <div className="flex flex-col w-[960px] mx-auto relative">
           <p className="text-5xl font-medium text-center mb-10">Our Products</p>
           <div className="flex justify-between items-center mb-6">
@@ -133,7 +153,7 @@ function App() {
       </div>
 
       {/* Testimonial Section */}
-      <div className="container mx-auto my-12">
+      <div className="container mx-auto mt-14 mb-16">
         <div className="flex flex-col items-center w-[700px] mx-auto">
           <p className="text-center text-md">
             "I would highly recommend the Radiant beauty product line to anyone looking for high-quality, 
@@ -155,7 +175,7 @@ function App() {
       </div>
 
       {/*  */}
-      <div className="container mx-auto my-10">
+      <div className="container mx-auto mt-14 mb-16 py-8">
         <div className="grid grid-cols-12 mx-40 rounded-3xl h-[360px]">
           <div className="col-span-4 banner_1 relative flex items-end rounded-tl-3xl rounded-bl-3xl w-full">
             <p className="text-white pl-6 pb-4 text-3xl">Elevate your beauty routine.</p>
@@ -165,6 +185,47 @@ function App() {
           </div>
           <div className="col-span-4 banner_3 relative flex items-end rounded-tr-3xl rounded-br-3xl ">
             <p className="text-black pl-6 pb-4 text-3xl">Radiant skin, all year.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* AutoPlay Slider */}
+      <div className="mx-auto mt-14 mb-16 py-8" >
+        <div className="flex flex-col">
+          <p className="text-center pb-16 font-medium text-5xl">Our Instagram</p>
+          <div className="opacity-90">
+            <Splide options={autoScrollOptions} extensions={{ AutoScroll }}>
+                <SplideSlide>
+                  <div className="bg-white">
+                    <img src={ScrollImg1} className="h-72 rounded-3xl w-full" alt="" />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div className="bg-white">
+                    <img src={ScrollImg2} className="h-72 rounded-3xl w-full" alt="" />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div className="bg-white">
+                    <img src={ScrollImg3} className="h-72 rounded-3xl w-full" alt="" />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div className="bg-white">
+                    <img src={ScrollImg4} className="h-72 rounded-3xl w-full" alt="" />
+                  </div>
+                </SplideSlide>
+                <SplideSlide>
+                  <div className="bg-white">
+                    <img src={ScrollImg5} className="h-72 rounded-3xl w-full" alt="" />
+                  </div>
+                </SplideSlide>
+              </Splide>
+          </div>
+          <div className="flex justify-center pt-14">
+            <button className="rounded-full px-4 py-3 text-xs bg-black text-white hover:bg-primaryColor hover_transition">
+              <p>Follow us @instagram</p>
+            </button>
           </div>
         </div>
       </div>
