@@ -12,7 +12,8 @@ import { HiArrowRight } from 'react-icons/hi';
 import { HiStar } from 'react-icons/hi2';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { FaCcPaypal, FaCcMastercard, FaCcApplePay, FaCcVisa } from 'react-icons/fa';
-import { PiInstagramLogoLight,PiTwitterLogoLight, PiFacebookLogoLight  } from 'react-icons/pi';
+import { PiInstagramLogoLight,PiTwitterLogoLight, PiFacebookLogoLight, PiFlowerLotusBold, PiPersonArmsSpreadBold  } from 'react-icons/pi';
+import { TiTickOutline } from "react-icons/ti";
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
@@ -93,7 +94,7 @@ function App() {
 
       {/* Static Section */}
       <div className="container mx-auto">
-        <div className="grid grid-cols-12 mx-40 my-10">
+        <div className="grid grid-cols-12 mx-40 mt-14 mb-16">
           {/* Image Section */}
           <div className="col-span-4">
             <img className="rounded-[50px]" src={HomeBannerImg} alt="Home Banner" />
@@ -124,7 +125,7 @@ function App() {
       </div>
 
       {/* Product Swiper */}
-      <div className="bg-homeBackgroundColor py-16 mt-14 mb-16">
+      <div className="bg-homeBackgroundColor py-16 mb-16">
         <div className="flex flex-col w-[960px] mx-auto relative">
           <p className="text-5xl font-medium text-center mb-10">Our Products</p>
           <div className="flex justify-between items-center mb-6">
@@ -153,7 +154,7 @@ function App() {
       </div>
 
       {/* Testimonial Section */}
-      <div className="container mx-auto mt-14 mb-16">
+      <div className="container mx-auto mb-16">
         <div className="flex flex-col items-center w-[700px] mx-auto">
           <p className="text-center text-md">
             "I would highly recommend the Radiant beauty product line to anyone looking for high-quality, 
@@ -174,8 +175,8 @@ function App() {
         </div>
       </div>
 
-      {/*  */}
-      <div className="container mx-auto mt-14 mb-16 py-8">
+      {/* Image Section */}
+      <div className="container mx-auto mb-16 py-8">
         <div className="grid grid-cols-12 mx-40 rounded-3xl h-[360px]">
           <div className="col-span-4 banner_1 relative flex items-end rounded-tl-3xl rounded-bl-3xl w-full">
             <p className="text-white pl-6 pb-4 text-3xl">Elevate your beauty routine.</p>
@@ -185,6 +186,36 @@ function App() {
           </div>
           <div className="col-span-4 banner_3 relative flex items-end rounded-tr-3xl rounded-br-3xl ">
             <p className="text-black pl-6 pb-4 text-3xl">Radiant skin, all year.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Text Section */}
+      <div className="container mx-auto mt-14 mb-16 py-8 w-[960px]">
+        <div className="flex flex-col">
+          <p className="text-center text-5xl font-medium pb-16">Quality without compromise</p>
+          <div className="flex flex-row justify-between text-center">
+            <div className="flex flex-col items-center px-4">
+              <div className="flex justify-center items-center my-6 w-24 h-24 rounded-full bg-homeBackgroundColor">
+                <TiTickOutline className="text-5xl font-thin text-black" />
+              </div>
+              <p className="text-xl pb-4">Transparency Matters</p>
+              <p className="text-sm font-light">Being completely transparent with ingredients and manufacturing processes for informed choices.</p>
+            </div>
+            <div className="flex flex-col items-center px-4">
+              <div className="flex justify-center items-center my-6 w-24 h-24 rounded-full bg-homeBackgroundColor">
+                <PiFlowerLotusBold className="text-5xl font-light text-black" />
+              </div>
+              <p className="text-xl pb-4">Quality Obsessed</p>
+              <p className="text-sm font-light">Passionate about creating high-quality, safe, and harmful-free skincare products.</p>
+            </div>
+            <div className="flex flex-col items-center px-4">
+              <div className="flex justify-center items-center my-6 w-24 h-24 rounded-full bg-homeBackgroundColor">
+                <PiPersonArmsSpreadBold className="text-5xl font-light text-black" />
+              </div>
+              <p className="text-xl pb-4">Customer-First Approach</p>
+              <p className="text-sm font-light">Committed to fair labor standards, responsible sourcing, and minimizing environmental impact throughout the supply chain.</p>
+            </div>
           </div>
         </div>
       </div>
