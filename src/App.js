@@ -8,11 +8,15 @@ import { HiStar } from "react-icons/hi2";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { FaCcPaypal, FaCcMastercard, FaCcApplePay, FaCcVisa } from "react-icons/fa";
 import { PiInstagramLogoLight,PiTwitterLogoLight, PiFacebookLogoLight  } from "react-icons/pi";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 
 function App() {
   const sliderOptions = {
+    autoplay: true,
+    speed: 1500,
+    drag: 'free',
+    snap: true, // Stops showing half slides and show full slide
     type: 'loop',
     perPage: '3',
     gap: '2rem',
@@ -101,27 +105,29 @@ function App() {
 
       {/* Product Swiper */}
       <div className="bg-homeBackgroundColor py-16 my-12">
-        <div className="flex flex-col w-[960px] mx-auto">
+        <div className="flex flex-col w-[960px] mx-auto relative">
           <p className="text-5xl font-medium text-center mb-10">Our Products</p>
           <div className="flex justify-between items-center mb-6">
             <button className="rounded-full bg-white px-4 py-2 text-sm hover:bg-primaryColor hover:text-white hover_transition">View all</button>
-            <div className="flex">
-                <IoIosArrowBack className="rounded-full w-8 h-auto p-2 text-white bg-black" />
-                <IoIosArrowForward className="rounded-full w-8 h-auto p-2 text-white bg-black ml-2" />
-            </div>
           </div>
-          <Splide options={sliderOptions}>
-            <SplideSlide>
-              <div className="rounded-2xl bg-white p-8">
-                <p className="text-xl h-16 overflow-hidden text-ellipsis pb-4">Radiant Eye Cream</p>
-                <p className="text-xl text-primaryColor">$40.00</p>
-                <img src={HomeBannerImg} className="h-40 rounded-xl w-full my-4" alt="" />
-                <div className="flex justify-between">
-                  <button className="text-xs bg-black text-white px-4 py-2 rounded-full hover:bg-primaryColor hover_transition">Buy now</button>
-                  <button className="text-xs bg-white text-black border-black border-[1px] px-4 py-2 rounded-full hover:bg-black hover:text-white hover_transition">Learn more</button>
+          <Splide hasTrack={false} options={sliderOptions}>
+            <SplideTrack className="custom_wrapper">
+              <SplideSlide>
+                <div className="rounded-2xl bg-white p-8">
+                  <p className="text-xl h-16 overflow-hidden text-ellipsis pb-4">Radiant Eye Cream</p>
+                  <p className="text-xl text-primaryColor">$40.00</p>
+                  <img src={HomeBannerImg} className="h-40 rounded-xl w-full my-4" alt="" />
+                  <div className="flex justify-between">
+                    <button className="text-xs bg-black text-white px-4 py-2 rounded-full hover:bg-primaryColor hover_transition">Buy now</button>
+                    <button className="text-xs bg-white text-black border-black border-[1px] px-4 py-2 rounded-full hover:bg-black hover:text-white hover_transition">Learn more</button>
+                  </div>
                 </div>
-              </div>
-            </SplideSlide>
+              </SplideSlide>
+            </SplideTrack>
+            <button className="splide__arrows flex absolute top-[-42px] right-[80px]" type="button">
+              <IoIosArrowBack className="splide__arrow splide__arrow--prev rounded-full w-8 h-auto p-2 top-0 !left-[1px] !opacity-100 !text-white !bg-black" />
+              <IoIosArrowForward className="splide__arrow splide__arrow--next rounded-full w-8 h-auto p-2 top-0 !left-[40px] !opacity-100 !text-white !bg-black ml-2" />
+            </button>
           </Splide>
         </div>
       </div>
