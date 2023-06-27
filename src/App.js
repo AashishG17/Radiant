@@ -31,7 +31,7 @@ function App() {
   const autoScrollOptions = {
     type: 'loop',
     drag: 'free',
-    gap: '4rem',
+    gap: '36px',
     arrows: false,
     pagination: false,
     perPage: 4,
